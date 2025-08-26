@@ -27,7 +27,6 @@
 
   scene1.style.opacity = 1;
 
-  // ✅ Use only one type of input (touch OR click)
   const eventType = ('ontouchstart' in window) ? 'touchstart' : 'click';
   document.body.addEventListener(eventType, handleTap);
 
@@ -38,7 +37,14 @@
       setTimeout(() => scene2.style.opacity = 1, 1000);
     } else if (step === 2) {
       scene2.style.opacity = 0;
-      setTimeout(() => cakeScene.style.display = "block", 1000);
+      setTimeout(() => {
+        cakeScene.style.display = "block";
+        cakeScene.style.opacity = 0;
+        cakeScene.style.transition = "opacity 2s"; // smooth fade
+        setTimeout(() => {
+          cakeScene.style.opacity = 1;
+        }, 50);
+      }, 3000); // ⏳ wait 3 seconds before showing cake
     } else if (step === 3) {
       const flames = document.querySelectorAll(".flame");
       flames.forEach(f => {
