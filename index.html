@@ -46,7 +46,7 @@
       border-radius: 10px;
       display: none;
       opacity: 0;
-      transition: opacity 1s;
+      transition: opacity 2s;
     }
 
     .cake::before {
@@ -265,7 +265,7 @@ happy birthday my sweet boyyyy im sooo proud of who u r today maaa never ever ev
           setTimeout(() => {
             cakeScene.style.opacity = 1;
           }, 50);
-        }, 3000); // wait 3s before cake shows
+        }, 3000); // wait 3s before cake fade-in
       } else if (step === 3) {
         const flames = document.querySelectorAll(".flame");
         flames.forEach(f => {
